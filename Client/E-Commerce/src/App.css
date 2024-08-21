@@ -1,0 +1,88 @@
+.card {
+  border: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+img.card-img-top {
+  transition: all 0.3s ease;
+}
+
+img.card-img-top:hover {
+  transform: scale(1.1);
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #444141;
+}
+#BtnOffcanvas {
+  display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .py-4.container {
+    width: 35pc;
+  }
+  .d-flex.align-items-center.navbar-nav {
+    margin: 0px -10px;
+  }
+  input.form-control {
+    margin: 0px 25px;
+    width: 13pc;
+  }
+  .d-flex.align-items-center.mx-3.navbar-nav {
+    display: none !important;
+  }
+  .container {
+    width: 42pc !important;
+  }
+  img.w-25.rounded {
+    height: 15pc;
+  }
+  .btn.btn-danger.d-flex.align-items-center.mx-5 {
+    margin-right: -12rem !important;
+  }
+  .my-3.mx-5.col-lg-4.col-md-4.col-sm-6 {
+    width: 13pc;
+  }
+  #BtnOffcanvas {
+    display: block !important;
+  }
+  p.d-flex.justify-content-center.align-items-center {
+    width: 23pc !important;
+    font-size: 3pc !important;
+  }
+  #inputName {
+    width: 17pc !important;
+  }
+  #inputEmail {
+    width: 16pc !important;
+  }
+  #SignIn {
+    width: 5pc;
+  }
+  .d-flex.justify-content-center.bg-dark.w-25.text-light.rounded.p-5.container {
+    width: 170% !important;
+    margin: 0px 20px;
+  }
+}
