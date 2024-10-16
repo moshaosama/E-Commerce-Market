@@ -25,7 +25,7 @@ function Product() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${token}`,
+        Authorization: `${token!}`,
       },
     }).catch((err) => {
       console.log(err);
@@ -268,7 +268,7 @@ function Product() {
           <Row>
             {productName?.Products?.data?.map((el) => {
               return (
-                <Col lg="4" md="4" sm="6" className="my-3 mx-5">
+                <Col lg="2" md="4" sm="6" className="my-3 mx-5">
                   <Card style={{ width: "18rem", cursor: "pointer" }}>
                     <Card.Img variant="top" src={el?.category?.image} />
                     <Card.Body>

@@ -1,8 +1,22 @@
 const { User } = require("../Models/AuthModel");
 const JWT = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { LocalStorage } = require("node-localstorage");
-const localStorage = new LocalStorage("./scratch");
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(
+      null,
+      "/Users/Mohamed/Desktop/Project Node js/E-coomerec Market/Client/E-Commerce/public"
+    );
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+exports.uploadImage = multer({ storage });
 
 exports.SignUp = async (req, res, next) => {
   try {
@@ -12,6 +26,7 @@ exports.SignUp = async (req, res, next) => {
       Password: req.body.Password,
       PasswordConfirmation: req.body.PasswordConfirmation,
     });
+
     await user.save();
 
     res.status(200).json({
@@ -142,6 +157,37 @@ exports.updatePassword = async (req, res, next) => {
     });
   } catch (err) {
     res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};
+
+exports.updateImage = async (req, res, next) => {
+  try {
+    const _id = req.params._id;
+    const updateImage = await User.findByIdAndUpdate(
+      _id,
+      {
+        image: req.file?.filename,
+      },
+      {
+        new: true,
+      }
+    );
+
+    if (!updateImage) {
+      return res.status(404).json({
+        status: "fail",
+        message: "Image not found",
+      });
+    }
+    res.status(200).json({
+      status: "success",
+      data: updateImage,
+    });
+  } catch (err) {
+    res.status(404).json({
       status: "error",
       message: err.message,
     });

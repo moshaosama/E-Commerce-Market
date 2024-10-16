@@ -50,7 +50,32 @@ function Header() {
                         <CiUser />
                       </Dropdown.Toggle>
 
-                      <Dropdown.Menu>
+                      <Dropdown.Menu className="p-2">
+                        <Link
+                          to={"/myProfile"}
+                          className="text-decoration-none text-dark"
+                        >
+                          <div
+                            className="d-flex align-items-end justify-content-between"
+                            style={{ cursor: "pointer" }}
+                          >
+                            <img
+                              src={User?.data?.image}
+                              alt=""
+                              style={{
+                                borderRadius: "10pc",
+                                height: "3pc",
+                                border: "1px solid",
+                                width: "3pc",
+                                padding: "5px",
+                              }}
+                            />
+                            <p style={{ fontWeight: "bolder" }}>
+                              {User?.data?.userName}
+                            </p>
+                          </div>
+                        </Link>
+                        <hr />
                         <Dropdown.Item>
                           <Link
                             to={"/myProfile"}

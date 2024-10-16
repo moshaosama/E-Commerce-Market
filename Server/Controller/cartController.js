@@ -14,7 +14,7 @@ exports.addCart = async (req, res, next) => {
 
     // Create a new cart entry with a unique ID
     const cart = new Cart({
-      data: product,
+      product,
     });
 
     // Save the cart to the database

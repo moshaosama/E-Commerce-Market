@@ -15,7 +15,7 @@ const Port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-// app.use(console.log(morgan()));
+app.use(morgan("dev"));
 dotenv.config({ path: "./config.env" });
 //
 
@@ -25,6 +25,7 @@ app.use("/SignUp", authRouter.signUpRouter);
 app.use("/Login", authRouter.loginRouter);
 app.use("/Review", reviewRouter.reviewRouter);
 app.use("/Cart", router);
+app.use("/updateImage", authRouter.updateImageRouter);
 //
 
 //Connecton

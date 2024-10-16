@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState<String>("");
   const [name, setName] = useState<String>("");
   const [password, setPassword] = useState<String>("");
   const [PasswordConfirmation, setPassCon] = useState<String>("");
+  const Navigation = useNavigate();
   return (
     <Container
       className="d-flex justify-content-center bg-dark w-25 text-light rounded p-5"
@@ -72,6 +73,7 @@ function SignUp() {
                 })
                   .then(() => {
                     console.log("Succsss");
+                    Navigation("/Login");
                   })
                   .catch((err) => {
                     console.log(err);

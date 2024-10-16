@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
 
-
 const userSchema = mongoose.Schema({
   userName: {
     type: String,
@@ -30,6 +29,8 @@ const userSchema = mongoose.Schema({
   },
   image: {
     type: String,
+    default: () =>
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMUDp3aV5EOTHgkQp6AB782rSKOyhhkdkx8Q&s",
   },
 });
 
